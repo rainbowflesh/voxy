@@ -31,9 +31,23 @@ jobs:
 
       - name: Gradle build
         run: ./gradlew build
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
+     
+      - uses: actions/upload-artifact@v4
         with:
-          name: voxy-${{ matrix.target }}
-          path: versions/${{ matrix.target }}/build/libs/*.jar
+          name: voxy-fabric-1.20.1
+          path: versions/1.20.1-fabric/build/libs/*.jar
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voxy-neoforge-1.20.1
+          path: versions/1.20.1-neoforge/build/libs/*.jar
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voxy-fabric-1.21.1
+          path: versions/1.21.1-fabric/build/libs/*.jar
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voxy-neoforge-1.21.1
+          path: versions/1.21.1-neoforge/build/libs/*.jar
