@@ -23,18 +23,11 @@ jobs:
 
       - name: Gradle build
         run: ./gradlew build
-      - name: Show workspace
-        run: |
-          pwd
-          ls -lah
-          find . -name "*.jar"
-      
-      - name: List build outputs
-        run: |
-          find build -type f || true
-      - name: Upload artifact
+            
+      - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
           name: voxy-artifacts
-          path: build/libs/*.jar
-          archive: false
+          path: | 
+            versions/**/build/libs/*.jar
+            build/libs/*.jar
