@@ -23,7 +23,15 @@ jobs:
 
       - name: Gradle build
         run: ./gradlew build
-
+      - name: Show workspace
+        run: |
+          pwd
+          ls -lah
+          find . -name "*.jar"
+      
+      - name: List build outputs
+        run: |
+          find build -type f || true
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
